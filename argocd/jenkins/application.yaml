@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins
+spec:
+  destination:
+    name: ''
+    namespace: cicd-platform
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: config/samples
+    repoURL: 'https://github.com/jenkinsci/kubernetes-operator/'
+    targetRevision: HEAD
+  project: default
+

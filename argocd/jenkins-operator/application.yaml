@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins-operator
+  namespace: cicd-platform
+spec:
+  destination:
+    name: ''
+    namespace: cicd-platform
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: >-
+      https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/master/chart
+    targetRevision: 0.6.0
+    chart: jenkins-operator
+    helm:
+      values: |-
+        operator:
+          image: 13f871b
+        jenkins:
+          enabled: false
+          namespace: cicd-platform
+  project: default
+  syncPolicy:
+    automated: null
+

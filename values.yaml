@@ -1,0 +1,8 @@
+server:
+  ingress:
+    enabled: true
+    hosts:
+    - cicd-platform.local
+configs:
+  secret:
+    argocdServerAdminPassword: $2a$12$7s6ZUTD1QEbx8fFQwCVl..Zoqehow4qKCi3qRq8UEx3iXL3M.C1J.
