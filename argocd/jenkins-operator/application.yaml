@@ -17,11 +17,11 @@ spec:
     helm:
       values: |-
         operator:
-          image: 13f871b
+          image: virtuslab/jenkins-operator:13f871b
         jenkins:
           enabled: false
           namespace: cicd-platform
   project: default
   syncPolicy:
-    automated: null
+    automated: {}
 

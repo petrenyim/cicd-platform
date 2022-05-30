@@ -14,13 +14,10 @@ spec:
   jenkinsAPISettings:
     authorizationStrategy: createUser
   master:
-    plugins:
-    - name: workflow-job
-      version: "1182.v60a_e6279b_579"
     disableCSRFProtection: false
     containers:
       - name: jenkins-master
-        image: jenkins/jenkins:lts
+        image: jenkins/jenkins:2.319.2-lts
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 12
