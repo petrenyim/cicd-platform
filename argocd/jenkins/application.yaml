@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: jenkins
+  namespace: cicd-platform
 spec:
   destination:
     name: ''
@@ -9,7 +10,10 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: jenkins/master
-    repoURL: 'https://github.com/petrenyim/cicd-platform.git'
+    repoURL: 'JENKINS_GIT_URL'
     targetRevision: HEAD
   project: default
+  syncPolicy:
+    automated: {}
+
 

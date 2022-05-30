@@ -26,9 +26,7 @@ install_jenkins() {
   kubectl apply -f argocd/jenkins-operator/application.yaml --namespace "${KUBERNETES_NAMESPACE}"
 
   echo "Deploying Jenkins master instance"
-  kubectl apply -f jenkins/master/secret.yaml --namespace "${KUBERNETES_NAMESPACE}"
-  kubectl apply -f jenkins/master/config.yaml --namespace "${KUBERNETES_NAMESPACE}"
-  kubectl apply -f jenkins/master/jenkins.yaml --namespace "${KUBERNETES_NAMESPACE}"
+  cat argocd/jenkins/application.yaml | sed  "s#JENKINS_GIT_URL#$(git remote get-url origin)#" | kubectl apply -f -
 }
 
 main() {
